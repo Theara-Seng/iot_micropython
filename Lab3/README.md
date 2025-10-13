@@ -106,6 +106,49 @@ MQTT is based on a **publisher–broker–subscriber** model:
 - **Broker:** the central server that receives and distributes messages (e.g., Mosquitto, HiveMQ, or test.mosquitto.org)
 - **Subscriber:** any client that listens for messages on specific topics (for example, a dashboard or another ESP32)
 
-Each message is sent to a **topic**, which acts like an address for that data stream.  
-Example topic structure:
+
+---
+
+### 🧠 Key Concepts
+
+| Term | Description |
+|------|--------------|
+| **Broker** | The MQTT server that routes messages between clients |
+| **Topic** | A hierarchical string that identifies the data (e.g., `home/livingroom/temp`) |
+| **Publish** | Sending a message to a topic |
+| **Subscribe** | Listening for messages from a topic |
+| **QoS (Quality of Service)** | Level of message delivery guarantee (0, 1, or 2) |
+| **Retain Flag** | Keeps the last published message available for new subscribers |
+| **Last Will and Testament (LWT)** | A message sent automatically if a client disconnects unexpectedly |
+
+---
+
+### 💡 Why Use MQTT
+
+- 🚀 **Lightweight:** Minimal bandwidth and power usage  
+- 🔁 **Bi-directional:** Devices can both send and receive messages  
+- 🧩 **Scalable:** Supports many clients easily  
+- 📡 **Reliable:** Works well over unstable networks  
+- 🌍 **Compatible:** Supported by most IoT platforms (AWS IoT, ThingsBoard, Node-RED, etc.)
+
+---
+
+### 🧩 Common MQTT Brokers
+
+| Broker Type | Example | Description |
+|--------------|----------|-------------|
+| **Public** | `test.mosquitto.org` | Free for testing, no login required |
+| **Local** | Mosquitto on Raspberry Pi or PC | Great for LAN IoT setups |
+| **Cloud** | HiveMQ, Adafruit IO, AWS IoT Core | Reliable for production IoT projects |
+
+---
+
+### 🖥️ How It Fits in This Project
+
+In this project, the **ESP32** reads environmental data from the **BMP280** sensor and publishes it to an MQTT topic.  
+Any client subscribed to the same topic (for example, a dashboard, Node-RED, or another microcontroller) can receive the data instantly.
+
+---
+
+Next, we’ll see how to **connect the ESP32 to Wi-Fi**, **read sensor values**, and **publish them to an MQTT broker** using **MicroPython**.
 

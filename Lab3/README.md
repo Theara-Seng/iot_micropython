@@ -89,3 +89,23 @@ while True:
     print("Altitude (m):", bmp.altitude)
     print("------------------")
     time.sleep(2)
+```
+
+## 🌐 MQTT Communication Overview
+
+**MQTT (Message Queuing Telemetry Transport)** is a lightweight, publish–subscribe messaging protocol widely used in **IoT (Internet of Things)** systems.  
+It enables small, low-power devices like the **ESP32** to send data efficiently to servers or cloud platforms over the Internet or a local network.
+
+---
+
+### ⚙️ How MQTT Works
+
+MQTT is based on a **publisher–broker–subscriber** model:
+
+- **Publisher:** sends messages (for example, the ESP32 publishing BMP280 data)
+- **Broker:** the central server that receives and distributes messages (e.g., Mosquitto, HiveMQ, or test.mosquitto.org)
+- **Subscriber:** any client that listens for messages on specific topics (for example, a dashboard or another ESP32)
+
+Each message is sent to a **topic**, which acts like an address for that data stream.  
+Example topic structure:
+

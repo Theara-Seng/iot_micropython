@@ -145,10 +145,67 @@ MQTT is based on a **publisher–broker–subscriber** model:
 
 ### 🖥️ How It Fits in This Project
 
-In this project, the **ESP32** reads environmental data from the **BMP280** sensor and publishes it to an MQTT topic.  
-Any client subscribed to the same topic (for example, a dashboard, Node-RED, or another microcontroller) can receive the data instantly.
+The ESP32 connects to Wi-Fi and publishes **random numeric values (10–20)** to a chosen **MQTT topic** every few seconds.  
+It works with any MQTT broker (public or private).
 
----
 
-Next, we’ll see how to **connect the ESP32 to Wi-Fi**, **read sensor values**, and **publish them to an MQTT broker** using **MicroPython**.
+## 💻 Example Code
+
+```python
+# main.py — Publish random 10–20 to MQTT broker (test.mosquitto.org)
+import network, time, json, random
+from umqtt.simple import MQTTClient
+
+# ===== Wi-Fi credentials =====
+WIFI_SSID = "TP-LINK_56C612"
+WIFI_PASS = "06941314"
+
+# ===== MQTT setup =====
+MQTT_BROKER = "test.mosquitto.org"   # public test broker
+MQTT_PORT   = 1883                   # default MQTT port
+CLIENT_ID   = b"esp32-random"
+TOPIC       = b"aupp/lab/random"     # your custom topic
+
+# ===== Connect Wi-Fi =====
+def wifi_connect():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    if not wlan.isconnected():
+        print("Connecting to Wi-Fi…")
+        wlan.connect(WIFI_SSID, WIFI_PASS)
+        t0 = time.ticks_ms()
+        while not wlan.isconnected():
+            if time.ticks_diff(time.ticks_ms(), t0) > 15000:
+                raise RuntimeError("Wi-Fi timeout")
+            time.sleep(0.2)
+    print("Wi-Fi connected:", wlan.ifconfig())
+
+# ===== Main =====
+def main():
+    wifi_connect()
+
+    # Connect to MQTT broker
+    print("Connecting to MQTT broker…")
+    client = MQTTClient(CLIENT_ID, MQTT_BROKER, port=MQTT_PORT, keepalive=30)
+    client.connect()
+    print("Connected to MQTT broker:", MQTT_BROKER)
+
+    # Publish random values
+    while True:
+        value = round(random.uniform(10, 20), 2)
+        payload = json.dumps({"random_value": value})
+        client.publish(TOPIC, payload)
+        print("Published to", TOPIC.decode(), ":", payload)
+        time.sleep(5)
+
+if __name__ == "__main__":
+    main()
+
+```
+
+You can download the mqtt explorer from the link below
+- [MQTT Explorer](https://github.com/thomasnordquist/MQTT-Explorer/releases/tag/v0.4.0-beta.6)
+After that you go to mqtt explorer and connect to test.mosquitto.org, after that you search for the aupp you will see the data as shown in the image below
+
+![BMP280 Sensor](image/mqtt.png)
 

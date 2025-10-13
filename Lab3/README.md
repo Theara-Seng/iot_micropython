@@ -1,5 +1,13 @@
 # 🌡️ BMP280 Sensor with ESP32 (MicroPython)
 
+
+
+![BMP280 Sensor](image/connection.png)
+
+
+
+
+
 The **BMP280** is a **digital barometric pressure and temperature sensor** designed by **Bosch Sensortec**.  
 It offers accurate readings of **atmospheric pressure**, **temperature**, and can estimate **altitude** — making it ideal for **weather stations**, **drones**, **IoT monitoring systems**, and **environmental projects**.
 

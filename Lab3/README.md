@@ -9,7 +9,7 @@
 
 
 The **BMP280** is a **digital barometric pressure and temperature sensor** designed by **Bosch Sensortec**.  
-It offers accurate readings of **atmospheric pressure**, **temperature**, and can estimate **altitude** — making it ideal for **weather stations**, **drones**, **IoT monitoring systems**, and **environmental projects**.
+It offers accurate readings of **atmospheric pressure**, **temperature**, and can estimate **altitude** making it ideal for **weather stations**, **drones**, **IoT monitoring systems**, and **environmental projects**.
 
 ---
 
@@ -34,15 +34,6 @@ It communicates via **I²C** or **SPI**, allowing easy integration with microcon
 The BMP280 measures **absolute atmospheric pressure** using a piezo-resistive sensor.  
 From pressure and temperature, it calculates the **altitude** using the **barometric formula**:
 
-\[
-Altitude = 44330 \times \left(1 - \left(\frac{P}{P_0}\right)^{1/5.255}\right)
-\]
-
-where  
-- \( P \) = measured pressure (Pa)  
-- \( P_0 \) = sea-level pressure (typically 101325 Pa)
-
----
 
 ## 🧩 Applications
 

@@ -69,7 +69,7 @@ From pressure and temperature, it calculates the **altitude** using the **barome
 - **Software:**
   - [Thonny IDE](https://thonny.org/)  
   - MicroPython firmware installed on ESP32  
-  - `bmp280.py` driver uploaded to the board  
+  - `bmp280.py` driver uploaded to the board  (You can find the library in the Lab3 and save it in Micropython)
 
 ---
 

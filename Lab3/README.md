@@ -209,3 +209,28 @@ After that you go to mqtt explorer and connect to test.mosquitto.org, after that
 
 ![BMP280 Sensor](image/mqtt.png)
 
+# 🌩️ ESP32 → ThingsBoard Cloud (MQTT Telemetry) using MicroPython
+
+## 🧭 How This Project Fits Into Your IoT Setup
+
+This project shows how to connect an **ESP32** board (running **MicroPython**) to **ThingsBoard Cloud** via **MQTT**.  
+It’s the **first step** in building an Internet of Things (IoT) system where your microcontroller sends live sensor data to a cloud dashboard.
+
+You can later extend it to:
+- Send real sensor values (temperature, water level, etc.)
+- Build dashboards and gauges in ThingsBoard
+- Add control features (turn devices on/off via MQTT commands)
+
+This example uses **random values (10–20)** to simulate sensor data — making it a perfect starting point before integrating real sensors like DHT22, BMP280, or flow meters.
+
+---
+
+## 🚀 Overview
+
+Your ESP32 will:
+1. Connect to Wi-Fi  
+2. Connect securely to **ThingsBoard Cloud** using MQTT  
+3. Publish random values (10–20) every 5 seconds  
+4. Display those values in your ThingsBoard dashboard
+
+You can monitor your device in the **ThingsBoard Web Dashboard** under **Latest Telemetry**.

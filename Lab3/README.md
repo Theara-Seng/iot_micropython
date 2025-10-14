@@ -234,3 +234,43 @@ Your ESP32 will:
 4. Display those values in your ThingsBoard dashboard
 
 You can monitor your device in the **ThingsBoard Web Dashboard** under **Latest Telemetry**.
+
+#### The code below is used to send a random value to the thingsboard
+```python
+# main.py — TB Cloud MQTT (1883) publish random 10..20
+import network, time, json, random
+from umqtt.simple import MQTTClient
+
+SSID="Robotic WIFI"; PASS="rbtWIFI@2025"
+
+TB_HOST = "mqtt.thingsboard.cloud"
+TB_PORT = 1883
+TB_TOKEN = b"AvP0KUdp5wXZFHM3dVtu"
+TOPIC   = b"v1/devices/me/telemetry"
+
+# Wi-Fi
+w = network.WLAN(network.STA_IF); w.active(True)
+if not w.isconnected():
+    w.connect(SSID, PASS)
+    t = time.ticks_ms()
+    while not w.isconnected():
+        if time.ticks_diff(time.ticks_ms(), t) > 15000: raise RuntimeError("Wi-Fi timeout")
+        time.sleep(0.2)
+print("Wi-Fi:", w.ifconfig())
+
+# MQTT (username = token, password empty)
+c = MQTTClient(b"esp32-tb", TB_HOST, port=TB_PORT, user=TB_TOKEN, password=b"", keepalive=30, ssl=False)
+c.connect()
+print("Connected to", TB_HOST, ":", TB_PORT)
+
+while True:
+    val = round(random.uniform(10, 20), 2)
+    msg = json.dumps({"random_value": val}).encode("utf-8")  # <-- bytes
+    print("Publishing to", TOPIC, "payload bytes:", msg)     # debug
+    c.publish(TOPIC, msg)
+    time.sleep(5)
+
+```
+
+After that you can go to thingsboard cloud and creating the dashboard. You will see the random value dashboard as shown below.
+![BMP280 Sensor](image/thingsboard.png)

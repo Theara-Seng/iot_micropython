@@ -198,3 +198,5 @@ This will generate the topic of: /aupp/esp32/random
   ```bash
   node-red
   ```
+After that you will see the server is running. So, you need hold the CTRL button and click on the server as shown in the image below
+

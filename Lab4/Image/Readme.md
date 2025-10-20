@@ -191,3 +191,10 @@ def main():
 main()
 ```
 This will generate the topic of: /aupp/esp32/random
+
+## 🧩 Step 2 — Node-RED Setup
+
+1. Go to powershell and type:
+  ```bash
+  node-red
+  ```

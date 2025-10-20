@@ -83,8 +83,46 @@ Expand-Archive .\influxdb-1.12.2-windows.zip -DestinationPath 'C:\Program Files\
 ```powershell
 cd "C:\Program Files\InfluxData\influxdb"
 .\influx.exe
-
+```
 3. In a new PowerShell window, open the Influx shell:
 ```powershell
 cd "C:\Program Files\InfluxData\influxdb"
 .\influx.exe -host 127.0.0.1
+```
+
+## 📊 Installing Grafana
+
+Grafana is a powerful visualization platform for time-series data such as InfluxDB metrics.
+
+> 💡 This project uses **Grafana v10+** and **InfluxQL** as the query language.
+
+Official downloads:  
+🔗 [https://grafana.com/grafana/download](https://grafana.com/grafana/download)
+
+---
+
+### 🧩 Windows Installation
+
+1. Download the Windows installer (`grafana-enterprise-<version>.windows-amd64.msi`)  
+   👉 [Grafana Download for Windows](https://grafana.com/grafana/download?platform=windows)
+
+2. Run the installer (accept defaults).  
+   Grafana will be installed as a **Windows Service** and starts automatically.
+
+3. Verify the service is running:
+   - Press **Windows + R**, type `services.msc`, press **Enter**.
+   - Locate **Grafana** (or **Grafana Enterprise**).
+   - If not running → right-click → **Start**.
+
+   Or, from **PowerShell (Admin)**:
+   ```powershell
+   net start grafana
+4. Open Grafana in your browser:
+   ```powershell
+   http://localhost:3000
+   
+   Default login:
+   
+   Username: admin
+
+   Password: admin

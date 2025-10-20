@@ -120,6 +120,7 @@ Official downloads:
 4. Open Grafana in your browser:
    ```powershell
    http://localhost:3000
+   ```
    
    Default login:
    

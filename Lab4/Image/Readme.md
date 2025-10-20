@@ -269,8 +269,39 @@ After that you will see the server is running. So, you need hold the CTRL button
    ```
    -- Then you do
    ```
-   SELECT * FROM random ORDER BY tim DESC LIMIT 5;
+   SELECT * FROM random ORDER BY time DESC LIMIT 5;
    ```
    You will see the data which store in the influxDB as shown in the image below
 
      ![node-inf](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/influxdbdata.png)
+
+## Launch Grafana
+
+1. Open Grafana in your browser
+   ```bash
+   http://localhost:3000
+   ```
+   Default Credentials:
+
+      - Username: admin
+      - Password: admin
+   Grafana will prompt you to set a new password on first login.
+
+2. Add InfluxDB as a Data Source
+   - On the left sidebar, click ⚙️ (Settings) → Data Sources
+
+   - Click Add data source
+
+   - Select InfluxDB
+
+   - Configure the connection:
+3. Configure InfluxDB Connection
+
+| **Setting** | **Value** |
+|--------------|------------|
+| **Query Language** | InfluxQL |
+| **URL** | `http://127.0.0.1:8086` |
+| **Database** | `aupp_lab` |
+| **User / Password** | *(blank unless you configured authentication)* |
+| **HTTP Method** | GET |
+| **Version** | 1.8+ |

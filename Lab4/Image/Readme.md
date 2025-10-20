@@ -297,11 +297,28 @@ After that you will see the server is running. So, you need hold the CTRL button
    - Configure the connection:
 3. Configure InfluxDB Connection
 
-| **Setting** | **Value** |
-|--------------|------------|
-| **Query Language** | InfluxQL |
-| **URL** | `http://127.0.0.1:8086` |
-| **Database** | `aupp_lab` |
-| **User / Password** | *(blank unless you configured authentication)* |
-| **HTTP Method** | GET |
-| **Version** | 1.8+ |
+   | **Setting** | **Value** |
+   |--------------|------------|
+   | **Query Language** | InfluxQL |
+   | **URL** | `http://127.0.0.1:8086` |
+   | **Database** | `aupp_lab` |
+   | **User / Password** | *(blank unless you configured authentication)* |
+   | **HTTP Method** | GET |
+   | **Version** | 1.8+ |
+
+4. Create a Dashboard 
+
+This step will guide you through creating a real-time dashboard in **Grafana** to visualize the ESP32 data stored in **InfluxDB**.
+
+---
+
+-. In Grafana’s left sidebar, click the **“+” (Create)** icon
+   
+- Select **Dashboard → Add new panel**
+
+- Choose Your Data Source
+   - Under **Query**, select your InfluxDB data source (e.g., `InfluxDB - aupp_lab`)  
+   - This connects Grafana to the database where your Node-RED flow is saving data
+5. Then you just need to change the topic to random, you will see the data is updating everytime the esp32 sending the random value
+
+

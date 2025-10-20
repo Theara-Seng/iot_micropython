@@ -214,4 +214,30 @@ After that you will see the server is running. So, you need hold the CTRL button
 4. Click deply and check the debug you will see the random value on the right of the image
 
 ![data](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/data.png)
-5. 
+
+## 🗄️ Step 3 — InfluxDB Setup
+1. Start InfluxDB:
+   ```bash
+   cd "C:\Program Files\InfluxData\influxdb"
+   .\influxd.exe
+   ```
+2. Open a new PowerShell window:
+   ```
+   cd "C:\Program Files\InfluxData\influxdb"
+   .\influx.exe -host 127.0.0.1
+   ```
+3. In the Node Red, install the influxDB
+
+   -> Open Node-RED → ☰ Menu → Manage palette → Install
+   
+   -> Search: node-red-contrib-influxdb
+   
+   -> Click Install.
+   
+      You’ll get two nodes in the left palette:
+      
+      InfluxDB out (write to Influx)
+      
+      InfluxDB in (query Influx)
+
+4. After That confige the node-red with influxDB 

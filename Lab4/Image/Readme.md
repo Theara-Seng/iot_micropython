@@ -70,11 +70,21 @@ InfluxDB is a time-series database used to store sensor and IoT data efficiently
 
 ---
 
-### 🧩 Option 1 — Windows Installation
+### 🧩  Windows Installation
+1. Open **PowerShell as Administrator** and start the server:
+```bash
+wget https://download.influxdata.com/influxdb/releases/v1.12.2/influxdb-1.12.2-windows.zip -UseBasicParsing -OutFile influxdb-1.12.2-windows.zip
 
-1. Download the ZIP archive for **InfluxDB 1.x (Windows)**:  
-   👉 [InfluxDB 1.12.2 Windows ZIP](https://download.influxdata.com/influxdb/releases/influxdb-1.12.2-windows.zip)
+Then
+```bash
+Expand-Archive .\influxdb-1.12.2-windows.zip -DestinationPath 'C:\Program Files\InfluxData\influxdb\'
 
-2. Extract it, e.g. to C:\Program Files\InfluxData\influxdb
-   
-3. Open **PowerShell as Administrator** and start the server:
+2. In a PowerShell window, open the Influx shell:
+```powershell
+cd "C:\Program Files\InfluxData\influxdb"
+.\influx.exe
+
+3. In a new PowerShell window, open the Influx shell:
+```powershell
+cd "C:\Program Files\InfluxData\influxdb"
+.\influx.exe -host 127.0.0.1

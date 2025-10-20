@@ -60,3 +60,21 @@ Node-RED is a flow-based tool for wiring together hardware, APIs, and online ser
 4. Once started, open your browser and go to:
    ```bash
    http://localhost:1880
+
+## 🗄️ Installing InfluxDB (v1.x)
+
+InfluxDB is a time-series database used to store sensor and IoT data efficiently.
+
+> 💡 This project was tested with **InfluxDB v1.12.2** (InfluxQL syntax).  
+> Official downloads: [https://portal.influxdata.com/downloads/](https://portal.influxdata.com/downloads/)
+
+---
+
+### 🧩 Option 1 — Windows Installation
+
+1. Download the ZIP archive for **InfluxDB 1.x (Windows)**:  
+   👉 [InfluxDB 1.12.2 Windows ZIP](https://download.influxdata.com/influxdb/releases/influxdb-1.12.2-windows.zip)
+
+2. Extract it, e.g. to C:\Program Files\InfluxData\influxdb
+   
+3. Open **PowerShell as Administrator** and start the server:

@@ -240,4 +240,37 @@ After that you will see the server is running. So, you need hold the CTRL button
       
       InfluxDB in (query Influx)
 
-4. After That confige the node-red with influxDB 
+4. After That, config the node-red with influxDB,
+   
+![node-inf](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/node_red_inf.png)
+
+ - In the Function block add the code below
+   ```bash
+   msg.measurement = "random";   
+   msg.payload = { value: Number(msg.payload) };
+   return msg;
+   ```
+
+   ![node-inf](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/function.png)
+
+- In the InfluxDB out you need to add the measurement and the data as shown in the image below
+
+ ![node-inf](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/random.png)
+
+  ![node-inf](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/influxdbblock.png)
+
+- Then click deploy
+
+5. In the influxDB powershell, you need to create a database for Node-RED
+   ```
+   CREATE DATABASE aupp_lab;
+   SHOW DATABASES;
+   USE aupp_lab;
+   ```
+   -- Then you do
+   ```
+   SELECT * FROM random LIMIT 5;
+   ```
+   You will see the data which store in the influxDB as shown in the image below
+
+     ![node-inf](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/influxdbdata.png)

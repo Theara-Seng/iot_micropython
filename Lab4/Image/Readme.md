@@ -40,3 +40,17 @@ This project demonstrates a complete IoT data pipeline using an **ESP32** runnin
 
 ### Optional Tools
 - [MQTT Explorer](https://mqtt-explorer.com/) — inspect and debug MQTT topics
+
+### ⚙️ Installing Node-RED (Local Setup)
+
+Node-RED is a flow-based tool for wiring together hardware, APIs, and online services — perfect for IoT projects like this one.
+
+### 🧩 Option 1 — Install via npm (recommended for Windows, macOS, Linux)
+
+> 📦 Node-RED requires **Node.js ≥ 14** and **npm** installed first.  
+> Download Node.js from [https://nodejs.org](https://nodejs.org).
+
+1. Open **Terminal** (macOS/Linux) or **PowerShell** (Windows).
+2. Install Node-RED globally:
+   ```bash
+   npm install -g --unsafe-perm node-red

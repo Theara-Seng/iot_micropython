@@ -74,11 +74,11 @@ InfluxDB is a time-series database used to store sensor and IoT data efficiently
 1. Open **PowerShell as Administrator** and start the server:
 ```bash
 wget https://download.influxdata.com/influxdb/releases/v1.12.2/influxdb-1.12.2-windows.zip -UseBasicParsing -OutFile influxdb-1.12.2-windows.zip
-
+```
 Then
 ```bash
 Expand-Archive .\influxdb-1.12.2-windows.zip -DestinationPath 'C:\Program Files\InfluxData\influxdb\'
-
+```
 2. In a PowerShell window, open the Influx shell:
 ```powershell
 cd "C:\Program Files\InfluxData\influxdb"

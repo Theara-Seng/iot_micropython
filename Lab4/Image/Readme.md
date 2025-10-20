@@ -269,7 +269,7 @@ After that you will see the server is running. So, you need hold the CTRL button
    ```
    -- Then you do
    ```
-   SELECT * FROM random LIMIT 5;
+   SELECT * FROM random ORDER BY tim DESC LIMIT 5;
    ```
    You will see the data which store in the influxDB as shown in the image below
 

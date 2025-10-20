@@ -199,5 +199,19 @@ This will generate the topic of: /aupp/esp32/random
   node-red
   ```
 After that you will see the server is running. So, you need hold the CTRL button and click on the server as shown in the image below
+
 ![Nodered](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/nodered.png)
 
+
+2. Then in the Node Red, add the mqttin and the debug in order to verify the data in the node red
+
+![mqtt_node](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/mqtt-node_red.png)
+
+3. Click on the **mqtt** and change the parameter as shown in the image below
+
+![config](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/mqtt_config.png)
+
+4. Click deply and check the debug you will see the random value on the right of the image
+
+![data](https://github.com/Theara-Seng/iot_micropython/blob/main/Lab4/Image/data.png)
+5. 

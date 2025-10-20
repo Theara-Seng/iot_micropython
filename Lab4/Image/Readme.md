@@ -54,3 +54,9 @@ Node-RED is a flow-based tool for wiring together hardware, APIs, and online ser
 2. Install Node-RED globally:
    ```bash
    npm install -g --unsafe-perm node-red
+3. Start Node-RED
+   ```bash
+   node-red
+4. Once started, open your browser and go to:
+   ```bash
+   http://localhost:1880

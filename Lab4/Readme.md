@@ -82,7 +82,7 @@ Expand-Archive .\influxdb-1.12.2-windows.zip -DestinationPath 'C:\Program Files\
 2. In a PowerShell window, open the Influx shell:
 ```powershell
 cd "C:\Program Files\InfluxData\influxdb"
-.\influx.exe
+.\influxd.exe
 ```
 3. In a new PowerShell window, open the Influx shell:
 ```powershell

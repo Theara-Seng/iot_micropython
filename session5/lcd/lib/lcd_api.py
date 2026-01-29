@@ -75,7 +75,49 @@ class LcdApi:
                 self.cursor_x = 0
                 self.cursor_y = (self.cursor_y + 1) % self.num_lines
                 self.move_to(self.cursor_x, self.cursor_y)
+    def scroll_text(self, text, delay_ms=1000):
+        """
+        Loop scrolling text across both rows (16x2),
+        written in the SAME style as scroll_once().
+        """
+        text = str(text)
 
+        total_width = self.num_columns * self.num_lines  # 32 for 16x2
+        padded = text + " " * total_width
+
+        while True:
+            for i in range(len(padded) - total_width + 1):
+                # Row 0
+                self.move_to(0, 0)
+                self.putstr(padded[i:i + self.num_columns])
+
+                # Row 1
+                self.move_to(0, 1)
+                self.putstr(padded[i + self.num_columns:i + total_width])
+
+                sleep_ms(delay_ms)
+
+    def scroll_text_both_row(self, text, delay_ms=1000):
+        """
+        Continuously scroll text across both rows (16x2 LCD).
+        This function blocks (looping).
+        """
+        text = str(text)
+
+        total_width = self.num_columns * self.num_lines  # 32 for 16x2
+        padded = text + " " * total_width
+
+        while True:
+            for i in range(len(padded) - total_width + 1):
+                # First row
+                self.move_to(0, 0)
+                self.putstr(padded[i:i + self.num_columns])
+
+                # Second row
+                self.move_to(0, 1)
+                self.putstr(padded[i + self.num_columns:i + total_width])
+
+                sleep_ms(delay_ms)
     def putstr(self, string):
         for c in string:
             self.putchar(c)

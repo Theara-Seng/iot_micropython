@@ -2,8 +2,8 @@ import network, socket, ure, time
 from machine import Pin, PWM
 
 # --- Wi-Fi ---
-WIFI_SSID = "TUBE COFFEE"
-WIFI_PASS = "tubecoffee@hfb"
+WIFI_SSID = "Robotic WIFI"
+WIFI_PASS = "rbtWIFI@2025"
 
 def wifi_connect():
     sta = network.WLAN(network.STA_IF)

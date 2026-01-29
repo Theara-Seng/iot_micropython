@@ -75,6 +75,24 @@ class LcdApi:
                 self.cursor_x = 0
                 self.cursor_y = (self.cursor_y + 1) % self.num_lines
                 self.move_to(self.cursor_x, self.cursor_y)
+    def scroll_text_loop(self, text, row=0, delay_ms=800):
+        """
+        Scroll text on a specific LCD row (MicroPython-safe)
+        """
+        text = str(text)  # ensure string
+
+        # If text fits on LCD, just display it
+        if len(text) <= self.num_columns:
+            self.move_to(0, row)
+            self.putstr(text + " " * (self.num_columns - len(text)))
+            return
+
+        padded = text + " " * self.num_columns
+        while True:
+            for i in range(len(padded) - self.num_columns + 1):
+                self.move_to(0, row)
+                self.putstr(padded[i:i + self.num_columns])
+                sleep_ms(delay_ms)
     def scroll_text(self, text, delay_ms=1000):
         """
         Loop scrolling text across both rows (16x2),
